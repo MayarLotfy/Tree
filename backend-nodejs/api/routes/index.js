@@ -11,7 +11,7 @@ router.get('/node/getNode/:NodeId' , TreeController.getNode);
 
 router.post('/node/createNode', TreeController.createNode);
 router.patch('/node/updateNode/:nodeId' , TreeController.updateNode);
-router.delete('/node/deleteNode/:nodeId' , TreeController.deleteNode);
+router.delete('/node/deleteNode/:productId' , TreeController.deleteNode);
 
 
 //--------------------------------Info Routes-----------------

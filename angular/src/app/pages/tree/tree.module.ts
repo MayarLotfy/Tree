@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToasterModule } from 'angular2-toaster';
-import { StoreComponent } from './store.component';
+import { StoreComponent } from './tree.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from '../../@theme/theme.module';
 

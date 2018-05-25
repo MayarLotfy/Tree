@@ -31,12 +31,12 @@ export class APIService {
   }
 
   deleteProduct(productdata:TreeData):Observable<APIData> {
-    return this.http.delete<TreeData>( this.apiUrl + '/product/deleteProduct/' + productdata._id)
+    return this.http.delete<TreeData>( this.apiUrl + 'node/deleteNode/' + productdata._id)
     .catch(this.errorHandler);
   }
 
-  updateProduct(productdata:TreeData):Observable<APIData> {
-    return this.http.patch<TreeData>( this.apiUrl + 'product/updateProduct/' + productdata._id , productdata)
+  updateProduct(nodedata:TreeData):Observable<APIData> {
+    return this.http.patch<TreeData>( this.apiUrl + 'node/updateNode/' + nodedata._id , nodedata)
     .catch(this.errorHandler);
   }
 

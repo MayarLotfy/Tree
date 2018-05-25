@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import { StoreModule } from './store/store.module';
-import { infoModule } from './info/info.module';
+import { StoreModule } from './tree/tree.module';
+
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesRoutingModule } from './pages-routing.module';

@@ -5,7 +5,7 @@
 
   <nb-card-body>
       <toaster-container [toasterconfig]="config"></toaster-container>
-      <ng2-smart-table [settings]="settings" [source]="source" (rowSelect) = "OnRowSelect($event)" ></ng2-smart-table>
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"(rowSelect) = "OnRowSelect($event)" ></ng2-smart-table>
       <button (click)="parentClick($event)">View Parents</button>
       <button (click)="childrenClick($event)">View Children</button>
   </nb-card-body>

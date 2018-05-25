@@ -11,8 +11,8 @@ import { Button } from 'selenium-webdriver';
 
 @Component({
   selector: 'store',
-  templateUrl: './template/store.component.html',
-  styleUrls: ['./template/store.component.scss']
+  templateUrl: './template/tree.component.html',
+  styleUrls: ['./template/tree.component.scss']
 })
 
 export class StoreComponent implements OnInit {
@@ -20,17 +20,8 @@ export class StoreComponent implements OnInit {
   private node: String;
 
   private nodeData  = <TreeData>{};
-//  private cart: String;
- // private cardData = <CartData>{};
-  
-  
-
-
-
- // public listTemplateNode = [];
 
   public listTemplateNode=JSON.parse(localStorage.getItem('gridServicecList'));
- // public listTemplateNode2=JSON.parse(localStorage.getItem('gridServicecList2'));
 
  settings = {
 
@@ -59,23 +50,20 @@ export class StoreComponent implements OnInit {
       confirmDelete: true,
     },
   
-    getChildren: {
-    //  deleteButtonContent: '<i class="nb-trash"></i>',
-   //   confirmDelete: true,
-    },
+  
     actions: {
 
       
 
        add: true,
-    //  edit: true,
-     //  delete: true,
+      edit: true,
+       delete: true,
     
       columnTitle: 'Actions'
     },
     columns: {
 
-      nodeParents: //or something
+      nodeParents: 
       {
         title:'Parent Details',
         type:'html',
@@ -91,7 +79,7 @@ export class StoreComponent implements OnInit {
       },
 
       
-      nodeChildren: //or something
+      nodeChildren: 
       {
         title:'Children Details',
         type:'html',
@@ -171,6 +159,7 @@ export class StoreComponent implements OnInit {
       });
     });
   }
+
 
  
   types: string[] = ['default', 'info', 'success', 'warning', 'error'];

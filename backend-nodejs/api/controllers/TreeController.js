@@ -209,7 +209,8 @@ module.exports.createNode = function(req, res, next) {
 
 
 module.exports.updateNode = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.nodeId)) {
+  console.log(req.body);
+  if (!Validations.isObjectId(req.body._id)) {
     return res.status(422).json({
       err: null,
       msg: 'productId parameter must be a valid ObjectId.',
@@ -229,7 +230,7 @@ module.exports.updateNode = function(req, res, next) {
 
 
   Tree.findByIdAndUpdate(
-    req.params.name,
+    req.body._id,
     {
       $set: req.body
     },
@@ -252,29 +253,29 @@ module.exports.updateNode = function(req, res, next) {
 };
 
 module.exports.deleteNode = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.nodeId)) {
+  if (!Validations.isObjectId(req.params.productId)) {
     return res.status(422).json({
       err: null,
-      msg: 'nodeId parameter must be a valid ObjectId.',
+      msg: 'productId parameter must be a valid ObjectId.',
       data: null
     });
   }
-  Tree.findByIdAndRemove(req.params.nodeId).exec(function(
+  Tree.findByIdAndRemove(req.params.productId).exec(function(
     err,
-    deletedNode
+    deletedProduct
   ) {
     if (err) {
       return next(err);
     }
-    if (!deletedNode) {
+    if (!deletedProduct) {
       return res
         .status(404)
-        .json({ err: null, msg: 'node not found.', data: null });
+        .json({ err: null, msg: 'Node not found.', data: null });
     }
     res.status(200).json({
       err: null,
-      msg: 'node was deleted successfully.',
-      data: deletedNode
+      msg: 'Node was deleted successfully.',
+      data: deletedProduct
     });
   });
 };
